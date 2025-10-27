@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formularion con Bootstrap</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/d03b226fce.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+ <div class="card">
+    <div class="card-body">
+      <h4 class="card-title mb-3">Payment form example</h4>
+
+      <div class="alert alert-danger" role="alert" id="alertMessage" style="display: none;">
+        Some fields are missing or invalid
+      </div>
+
+      <form id="paymentForm">
+        <div class="row mb-3">
+          <div class="col-md-6 col-lg-6">
+            <label for="cardNumber" class="form-label">Card #</label>
+            <input type="text" class="form-control" id="cardNumber" maxlength="16" placeholder="XXXXXXXXXXXXXXXX" required>
+          </div>
+          <div class="col-md-3 col-6">
+            <label for="cvc" class="form-label">CVC #</label>
+            <input type="text" class="form-control" id="cvc" maxlength="3" placeholder="000" required>
+          </div>
+          <div class="col-md-3 col-6">
+            <label for="amount" class="form-label">Amount</label>
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input type="text" class="form-control" id="amount" placeholder="Amount" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" required>
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" required>
+          </div>
+          <div class="col-md-4">
+            <label for="state" class="form-label">State</label>
+            <select id="state" class="form-select" required>
+              <option selected disabled>Pick a state</option>
+              <option>Madrid</option>
+              <option>Extremadura</option>
+              <option>Asturias</option>
+              <option>Andalucia</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label for="postalCode" class="form-label">Postal Code</label>
+            <input type="text" class="form-control" id="postalCode" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">We accept:</label><br>
+          <div class="card-icons">
+            <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+            <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+            <img src="https://img.icons8.com/color/48/000000/amex.png" alt="AmEx">
+            <img src="https://img.icons8.com/color/48/000000/discover.png" alt="Discover">
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-secondary me-2">Cancel</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    const numericFields = ['cardNumber', 'cvc', 'amount', 'postalCode'];
+
+    numericFields.forEach(id => {
+      const input = document.getElementById(id);
+      input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '');
+      });
+    });
+
+    const form = document.getElementById('paymentForm');
+    const alertBox = document.getElementById('alertMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alertBox.style.display = 'none';
+
+      const card = document.getElementById('cardNumber').value.trim();
+      const cvc = document.getElementById('cvc').value.trim();
+      const amount = document.getElementById('amount').value.trim();
+      const postal = document.getElementById('postalCode').value.trim();
+
+      if (card.length !== 16 || cvc.length !== 3 || !amount || !postal) {
+        alertBox.style.display = 'block';
+        return;
+      }
+
+      alert('✅ Payment form submitted successfully!');
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
