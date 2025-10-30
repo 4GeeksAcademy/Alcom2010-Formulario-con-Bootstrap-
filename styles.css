@@ -1,46 +1,74 @@
 body {
   background-color: #f8f9fa;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card {
-  max-width: 800px;
-  margin: 50px auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.alert {
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .form-control,
 .form-select {
+  border-radius: 8px;
+}
+
+.btn {
+  border-radius: 8px;
+}
+
+.alert {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+textarea {
+  resize: none;
+}
+
+/* === Selector de tarjetas compacto === */
+.card-selector-small {
+  background-color: #6c757d;
   border-radius: 6px;
+  padding: 4px 8px;
 }
 
-.card-icons img {
-  width: 40px;
-  margin-right: 8px;
+.card-radio {
+  display: none;
+}
+
+.card-label-small {
+  cursor: pointer;
+  padding: 4px 6px;
+  color: white;
   opacity: 0.7;
-  transition: opacity 0.3s;
+  transition: all 0.2s ease;
+  margin: 0 3px;
 }
 
-.card-icons img:hover {
+.card-label-small i {
+  font-size: 1.3rem; /* Más pequeño */
+}
+
+.card-label-small:hover {
   opacity: 1;
+  transform: scale(1.05);
 }
 
-.btn-primary {
-  border-radius: 8px;
-  padding: 8px 20px;
+/* Tarjeta seleccionada */
+.card-radio:checked + .card-label-small {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
 }
 
-.btn-secondary {
-  border-radius: 8px;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .card-selector-small {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
-@media (max-width: 576px) {
-  .row > div {
-    margin-bottom: 15px;
+  .card-label-small {
+    margin: 2px;
   }
 }
