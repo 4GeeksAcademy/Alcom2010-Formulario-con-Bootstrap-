@@ -30,10 +30,6 @@ textarea {
   padding: 4px 8px;
 }
 
-.card-radio {
-  display: none;
-}
-
 .card-label-small {
   cursor: pointer;
   padding: 4px 6px;
