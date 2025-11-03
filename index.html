@@ -12,113 +12,118 @@
 </head>
 <body>
 
- <div class="container mt-5 mb-5">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h3 class="card-title mb-4">Payment form example</h3>
-        <div class="alert alert-danger">Some fields are missing</div>
-
-        <form>
-
-          <div class="row mb-3">
-            <div class="col-md-5">
-              <label for="cardNumber" class="form-label">Card #</label>
-              <input type="text" class="form-control" id="cardNumber" maxlength="16" inputmode="numeric" pattern="[0-9]*" placeholder="Enter card number" required>
-            </div>
-
-            <div class="col-md-2">
-              <label for="cvc" class="form-label">CVC #</label>
-              <input type="text" class="form-control" id="cvc" maxlength="3" inputmode="numeric" pattern="[0-9]*" placeholder="000" required>
-            </div>
-
-            <div class="col-md-2">
-              <label for="amount" class="form-label">Amount</label>
-              <input type="text" class="form-control" id="amount" inputmode="numeric" pattern="[0-9]*" placeholder="$" required>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="firstName" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" required>
-            </div>
-
-            <div class="col-md-6">
-              <label for="lastName" class="form-label">Apellidos</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" required>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <div class="col-md-5">
-              <label for="city" class="form-label">City</label>
-              <input type="text" class="form-control" id="city" required>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">State</label>
-              <select id="state" class="form-select" required>
-                <option value="">Pick a state</option>
-                <option>Madrid</option>
-                <option>extremadura</option>
-                <option>Andalucia</option>
-                <option>Asturias</option>
-              </select>
-            </div>
-
-            <div class="col-md-3">
-              <label for="postalCode" class="form-label">Codigo Postal</label>
-              <input type="text" class="form-control" id="postalCode" inputmode="numeric" pattern="[0-9]*" maxlength="5" required>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" class="form-control" rows="3" placeholder="Add any notes here."></textarea>
-          </div>
-
-          <div class="d-flex align-items-center mb-3">
-            <label class="form-label me-2 mb-0">We accept:</label>
-            <div class="card-selector-small d-flex align-items-center rounded">
-              
-              <input type="radio" name="cardType" id="mastercard" value="mastercard" class="card-radio" required>
-              <label for="mastercard" class="card-label-small">
-                <i class="fa-brands fa-cc-mastercard"></i>
-              </label>
-
-              <input type="radio" name="cardType" id="visa" value="visa" class="card-radio">
-              <label for="visa" class="card-label-small">
-                <i class="fa-brands fa-cc-visa"></i>
-              </label>
-
-              <input type="radio" name="cardType" id="diners" value="diners" class="card-radio">
-              <label for="diners" class="card-label-small">
-                <i class="fa-brands fa-cc-diners-club"></i>
-              </label>
-
-              <input type="radio" name="cardType" id="amex" value="amex" class="card-radio">
-              <label for="amex" class="card-label-small">
-                <i class="fa-brands fa-cc-amex"></i>
-              </label>
-
-              <input type="radio" name="cardType" id="discover" value="discover" class="card-radio">
-              <label for="discover" class="card-label-small">
-                <i class="fa-brands fa-cc-discover"></i>
-              </label>
-
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-secondary me-2">Cancel</button>
-            <button type="submit" class="btn btn-primary">Send</button>
-          </div>
-        </form>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment Form Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card shadow-sm">
+    <div class="card-header bg-white">
+      <h4 class="mb-0">Payment form example</h4>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-danger" role="alert">
+        Some fields are missing
       </div>
+
+      <form>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="cardNumber" class="form-label">Card #</label>
+            <input type="text" class="form-control" id="cardNumber" placeholder="XXXXXXXXXXXXXXXX">
+          </div>
+          <div class="col-md-3">
+            <label for="cvc" class="form-label">CVC #</label>
+            <input type="text" class="form-control" id="cvc" placeholder="0000">
+          </div>
+          <div class="col-md-3">
+            <label for="amount" class="form-label">Amount</label>
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input type="text" class="form-control" id="amount" placeholder="Amount">
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="firstName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="firstName">
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="lastName">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="city" class="form-label">Ciudad</label>
+            <input type="text" class="form-control" id="city">
+          </div>
+          <div class="col-md-3">
+            <label for="state" class="form-label">Estados</label>
+            <select class="form-select" id="state">
+              <option selected disabled>Estados</option>
+              <option>Madrid</option>
+              <option>Asturias</option>
+              <option>Extremadura</option>
+              <option>Sevilla</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="postalCode" class="form-label">Codigo Postal</label>
+            <input type="text" class="form-control" id="postalCode">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Acceptamos:</label>
+          <div class="card-icons d-flex gap-3">
+            <label class="card-option">
+              <input type="radio" name="card" value="mastercard">
+              <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+            </label>
+
+            <label class="card-option">
+              <input type="radio" name="card" value="visa">
+              <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+            </label>
+
+            <label class="card-option">
+              <input type="radio" name="card" value="diners">
+              <img src="https://img.icons8.com/color/48/000000/diners-club.png" alt="Diners Club">
+            </label>
+
+            <label class="card-option">
+              <input type="radio" name="card" value="amex">
+              <img src="https://img.icons8.com/color/48/000000/american-express.png" alt="Amex">
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="message" rows="3" placeholder="Escribe tu Mensaje aqui."></textarea>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="reset" class="btn btn-secondary me-2">Cancel</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      </form>
     </div>
   </div>
+</body>
+</html>
 
- </div>
 
 </body>
 </html>
