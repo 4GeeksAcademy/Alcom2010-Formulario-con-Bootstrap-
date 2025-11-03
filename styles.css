@@ -19,9 +19,6 @@ body {
   cursor: pointer;
 }
 
-.card-option input {
-  display: none;
-}
 
 .card-option img {
   height: 40px;
